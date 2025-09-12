@@ -11,6 +11,9 @@ public class MovieManagerTest {
     MovieItem item4 = new MovieItem(4, "Как приручить дракона", "Мультик");
     MovieItem item5 = new MovieItem(5, "Валериан и город тысячи планет", "Фантастика");
     MovieItem item6 = new MovieItem(6, "Нерв", "Триллер");
+    MovieItem item7 = new MovieItem(7, "Тайна дома с часами", "Фэнтези");
+    MovieItem item8 = new MovieItem(8, "Круиз по джунглям", "Приключение");
+    MovieItem item9 = new MovieItem(9, "Плохие парни", "Комедия");
 
     @Test
     public void shouldAddMovie() {
@@ -22,6 +25,38 @@ public class MovieManagerTest {
         movie.addMovie(item5);
 
         MovieItem[] expected = {item1, item2, item3, item4, item5};
+        MovieItem[] actual = movie.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void lessMoviesAdded() {
+        MovieManager movie = new MovieManager();
+        movie.addMovie(item1);
+        movie.addMovie(item2);
+        movie.addMovie(item6);
+
+        MovieItem[] expected = {item1, item2, item6};
+        MovieItem[] actual = movie.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void moreMoviesAdded() {
+        MovieManager movie = new MovieManager();
+        movie.addMovie(item1);
+        movie.addMovie(item2);
+        movie.addMovie(item6);
+        movie.addMovie(item3);
+        movie.addMovie(item4);
+        movie.addMovie(item5);
+        movie.addMovie(item7);
+        movie.addMovie(item8);
+        movie.addMovie(item9);
+
+        MovieItem[] expected = {item1, item2, item6, item3, item4};
         MovieItem[] actual = movie.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
@@ -68,8 +103,9 @@ public class MovieManagerTest {
         movie.addMovie(item4);
         movie.addMovie(item2);
         movie.addMovie(item6);
+        movie.addMovie(item9);
 
-        MovieItem[] expected = {item3, item5, item1, item4, item2, item6};
+        MovieItem[] expected = {item3, item5, item1, item4, item2, item6, item9};
         MovieItem[] actual = movie.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
