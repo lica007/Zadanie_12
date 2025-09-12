@@ -34,4 +34,12 @@ public class MovieManager {
     public MovieItem[] findAll() {
         return items;
     }
+
+    public MovieItem[] findLast() {
+        MovieItem[] movie = new MovieItem[5];
+        for (int i = 0; i < movie.length; i++) {
+            movie[i] = items[items.length - 1 - i];
+        }
+        return movie;
+    }
 }

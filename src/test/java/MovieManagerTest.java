@@ -45,16 +45,15 @@ public class MovieManagerTest {
 
     @Test
     public void shouldCountAddAndRevMovie() {
-        MovieManager movie = new MovieManager(3);
+        MovieManager movie = new MovieManager();
         movie.addMovie(item3);
         movie.addMovie(item5);
         movie.addMovie(item1);
         movie.addMovie(item4);
         movie.addMovie(item2);
-        movie.findRev();
 
-        MovieItem[] expected = {item1, item5, item3};
-        MovieItem[] actual = movie.findRev();
+        MovieItem[] expected = {item2, item4, item1, item5, item3};
+        MovieItem[] actual = movie.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
