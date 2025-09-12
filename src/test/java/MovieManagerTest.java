@@ -20,7 +20,6 @@ public class MovieManagerTest {
         movie.addMovie(item3);
         movie.addMovie(item4);
         movie.addMovie(item5);
-        movie.findRev();
 
         MovieItem[] expected = {item5, item4, item3, item2, item1};
         MovieItem[] actual = movie.findRev();
@@ -44,12 +43,13 @@ public class MovieManagerTest {
     }
 
     @Test
-    public void shouldCountAddAndRevMovie() {
+    public void shouldAddMovieAndFindLast() {
         MovieManager movie = new MovieManager();
         movie.addMovie(item3);
         movie.addMovie(item5);
         movie.addMovie(item1);
         movie.addMovie(item4);
+        movie.addMovie(item2);
         movie.addMovie(item2);
 
         MovieItem[] expected = {item2, item4, item1, item5, item3};

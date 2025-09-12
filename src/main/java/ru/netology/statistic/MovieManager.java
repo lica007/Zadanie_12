@@ -1,10 +1,11 @@
 package ru.netology.statistic;
 
 public class MovieManager {
-    private int count = 5;
+    private int count;
     private MovieItem[] items = new MovieItem[0];
 
     public MovieManager() {
+        this.count = 5;
     }
 
     public MovieManager(int count) {
@@ -36,7 +37,13 @@ public class MovieManager {
     }
 
     public MovieItem[] findLast() {
-        MovieItem[] movie = new MovieItem[5];
+        int result;
+        if (items.length < count){
+            result = items.length;
+        } else {
+            result = count;
+        }
+        MovieItem[] movie = new MovieItem[result];
         for (int i = 0; i < movie.length; i++) {
             movie[i] = items[items.length - 1 - i];
         }
