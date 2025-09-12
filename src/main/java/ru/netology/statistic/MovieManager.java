@@ -23,14 +23,14 @@ public class MovieManager {
         }
     }
 
-    public MovieItem[] findRev() {
-        MovieItem[] all = findAll();
-        MovieItem[] revorsed = new MovieItem[all.length];
-        for (int i = 0; i < revorsed.length; i++) {
-            revorsed[i] = all[all.length - 1 - i];
-        }
-        return revorsed;
-    }
+//    public MovieItem[] findRev() {
+//        MovieItem[] all = findAll();
+//        MovieItem[] revorsed = new MovieItem[all.length];
+//        for (int i = 0; i < revorsed.length; i++) {
+//            revorsed[i] = all[all.length - 1 - i];
+//        }
+//        return revorsed;
+//    }
 
     public MovieItem[] findAll() {
         return items;
